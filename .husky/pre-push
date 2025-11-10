@@ -3,4 +3,7 @@ if git diff --cached --name-only --diff-filter=ACM | grep -qE '\.(ts|tsx)$'; the
   pnpm run type-check
 fi
 
-pnpm run lint
+# Only run lint if JS/TS files exist in the project
+if find experiments projects examples -name "*.js" -o -name "*.jsx" -o -name "*.ts" -o -name "*.tsx" 2>/dev/null | grep -q .; then
+  pnpm run lint
+fi
