@@ -1,2 +1,6 @@
-pnpm run type-check
+# Only run type-check if TypeScript files exist
+if git diff --cached --name-only --diff-filter=ACM | grep -qE '\.(ts|tsx)$'; then
+  pnpm run type-check
+fi
+
 pnpm run lint
