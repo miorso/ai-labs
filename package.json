@@ -1,0 +1,50 @@
+{
+  "name": "ai-labs",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Hands-on AI workshops for team learning and experimentation with TypeScript, React, and AI SDK",
+  "keywords": [],
+  "homepage": "https://github.com/miorso/ai-labs#readme",
+  "bugs": {
+    "url": "https://github.com/miorso/ai-labs/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miorso/ai-labs.git"
+  },
+  "license": "MIT",
+  "author": "Mikel Orbea",
+  "type": "module",
+  "scripts": {
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "prepare": "husky",
+    "type-check": "tsc --noEmit",
+    "validate": "pnpm run format:check && pnpm run type-check"
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx,json,md,yml,yaml}": [
+      "prettier --write"
+    ]
+  },
+  "prettier": {
+    "plugins": [
+      "prettier-plugin-packagejson"
+    ],
+    "singleQuote": true
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^20.1.0",
+    "@commitlint/config-conventional": "^20.0.0",
+    "husky": "^9.0.0",
+    "lint-staged": "^16.2.6",
+    "prettier": "^3.2.0",
+    "prettier-plugin-packagejson": "^2.5.0",
+    "typescript": "^5.3.0"
+  },
+  "packageManager": "pnpm@10.21.0",
+  "engines": {
+    "node": ">=24.11.0",
+    "pnpm": ">=10.21.0"
+  }
+}
