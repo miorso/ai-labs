@@ -1,0 +1,47 @@
+# Auto-labeling configuration for pull requests
+
+documentation:
+  - changed-files:
+    - any-glob-to-any-file: '**/*.md'
+    - any-glob-to-any-file: 'docs/**/*'
+
+dependencies:
+  - changed-files:
+    - any-glob-to-any-file: 'package.json'
+    - any-glob-to-any-file: 'pnpm-lock.yaml'
+
+github-actions:
+  - changed-files:
+    - any-glob-to-any-file: '.github/workflows/**/*'
+    - any-glob-to-any-file: '.github/actions/**/*'
+
+typescript:
+  - changed-files:
+    - any-glob-to-any-file: '**/*.ts'
+    - any-glob-to-any-file: '**/*.tsx'
+    - any-glob-to-any-file: 'tsconfig.json'
+
+javascript:
+  - changed-files:
+    - any-glob-to-any-file: '**/*.js'
+    - any-glob-to-any-file: '**/*.jsx'
+
+configuration:
+  - changed-files:
+    - any-glob-to-any-file: '**/*.config.js'
+    - any-glob-to-any-file: '**/*.config.ts'
+    - any-glob-to-any-file: '.eslintrc*'
+    - any-glob-to-any-file: '.prettierrc*'
+    - any-glob-to-any-file: '.editorconfig'
+
+experiments:
+  - changed-files:
+    - any-glob-to-any-file: 'experiments/**/*'
+
+projects:
+  - changed-files:
+    - any-glob-to-any-file: 'projects/**/*'
+
+examples:
+  - changed-files:
+    - any-glob-to-any-file: 'examples/**/*'
