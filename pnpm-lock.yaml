@@ -33,6 +33,9 @@ importers:
       '@commitlint/config-conventional':
         specifier: ^20.0.0
         version: 20.0.0
+      '@types/marked-terminal':
+        specifier: ^6.1.1
+        version: 6.1.1
       '@types/prompts':
         specifier: ^2.4.9
         version: 2.4.9
@@ -218,8 +221,14 @@ packages:
   '@standard-schema/spec@1.0.0':
     resolution: {integrity: sha512-m2bOd0f2RT9k8QJx1JN85cZYyH1RqFBdlwtkSlf4tBDYLCiiZnv1fIIwacK6cqwXavOydf0NPToMQgpKq+dVlA==}
 
+  '@types/cardinal@2.1.1':
+    resolution: {integrity: sha512-/xCVwg8lWvahHsV2wXZt4i64H1sdL+sN1Uoq7fAc8/FA6uYHjuIveDwPwvGUYp4VZiv85dVl6J/Bum3NDAOm8g==}
+
   '@types/conventional-commits-parser@5.0.2':
     resolution: {integrity: sha512-BgT2szDXnVypgpNxOK8aL5SGjUdaQbC++WZNjF1Qge3Og2+zhHj+RWhmehLhYyvQwqAmvezruVfOf8+3m74W+g==}
+
+  '@types/marked-terminal@6.1.1':
+    resolution: {integrity: sha512-DfoUqkmFDCED7eBY9vFUhJ9fW8oZcMAK5EwRDQ9drjTbpQa+DnBTQQCwWhTFVf4WsZ6yYcJTI8D91wxTWXRZZQ==}
 
   '@types/node@24.10.0':
     resolution: {integrity: sha512-qzQZRBqkFsYyaSWXuEHc2WR9c0a0CXwiE5FWUvn7ZM+vdy1uZLfCunD38UzhuB7YN/J11ndbDBcTmOdxJo9Q7A==}
@@ -609,6 +618,11 @@ packages:
     engines: {node: '>=16.0.0'}
     peerDependencies:
       marked: '>=1 <16'
+
+  marked@11.2.0:
+    resolution: {integrity: sha512-HR0m3bvu0jAPYiIvLUUQtdg1g6D247//lvcekpHO1WMvbwDlwSkZAX9Lw4F4YHE1T0HaaNve0tuAWuV1UJ6vtw==}
+    engines: {node: '>= 18'}
+    hasBin: true
 
   marked@14.1.4:
     resolution: {integrity: sha512-vkVZ8ONmUdPnjCKc5uTRvmkRbx4EAi2OkTOXmfTDhZz3OFqMNBM1oTTWwTr4HY4uAEojhzPf+Fy8F1DWa3Sndg==}
@@ -1104,9 +1118,18 @@ snapshots:
 
   '@standard-schema/spec@1.0.0': {}
 
+  '@types/cardinal@2.1.1': {}
+
   '@types/conventional-commits-parser@5.0.2':
     dependencies:
       '@types/node': 24.10.0
+
+  '@types/marked-terminal@6.1.1':
+    dependencies:
+      '@types/cardinal': 2.1.1
+      '@types/node': 24.10.0
+      chalk: 5.6.2
+      marked: 11.2.0
 
   '@types/node@24.10.0':
     dependencies:
@@ -1457,6 +1480,8 @@ snapshots:
       marked: 14.1.4
       node-emoji: 2.2.0
       supports-hyperlinks: 3.2.0
+
+  marked@11.2.0: {}
 
   marked@14.1.4: {}
 

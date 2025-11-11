@@ -21,8 +21,6 @@ export async function runLab(path: string): Promise<boolean> {
       return;
     }
 
-    console.log(chalk.cyan(`▶️ Running: ${path}\n`));
-
     const nodeProcess = spawn('node', ['--experimental-strip-types', path], {
       stdio: 'inherit',
       env: process.env,

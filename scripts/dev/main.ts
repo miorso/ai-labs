@@ -6,6 +6,8 @@ import { existsSync } from 'fs';
 import { displayReadme } from './readme.ts';
 import { runLab } from './runner.ts';
 import { showActionMenu } from './actions.ts';
+import { displayExecutionBox } from './header.ts';
+import { confirmReadyToRun } from './confirm.ts';
 import type { LabChoice } from './types.ts';
 
 export async function main(): Promise<void> {
@@ -30,6 +32,7 @@ export async function main(): Promise<void> {
 
   let selectedPath = '';
   let showSelection = true;
+  let showReadme = true;
 
   while (true) {
     selectedPath = showSelection
@@ -39,21 +42,43 @@ export async function main(): Promise<void> {
     validatePath(selectedPath);
     console.clear();
 
-    if (isExercise(choices, selectedPath)) {
+    const isExercisePath = isExercise(choices, selectedPath);
+
+    if (isExercisePath && showReadme) {
       displayReadme(selectedPath);
+
+      const ready = await confirmReadyToRun();
+
+      if (!ready) {
+        showSelection = true;
+        continue;
+      }
+
+      console.clear();
+      displayExecutionBox(selectedPath, 'exercise');
+    } else if (!isExercisePath || !showReadme) {
+      const type = isExercisePath ? 'exercise' : 'solution';
+      displayExecutionBox(selectedPath, type);
     }
 
     await runLab(selectedPath);
 
-    const action = await showActionMenu();
+    const action = await showActionMenu(isExercisePath);
     switch (action) {
       case 'reload':
         console.clear();
         showSelection = false;
+        showReadme = false;
+        break;
+      case 'readme':
+        console.clear();
+        showSelection = false;
+        showReadme = true;
         break;
       case 'choose':
         console.clear();
         showSelection = true;
+        showReadme = true;
         break;
       default:
         console.log(

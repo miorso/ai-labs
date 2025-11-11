@@ -4,4 +4,4 @@ export interface LabChoice {
   type: 'exercise' | 'solution';
 }
 
-export type Action = 'reload' | 'choose' | 'quit';
+export type Action = 'reload' | 'readme' | 'choose' | 'quit';
