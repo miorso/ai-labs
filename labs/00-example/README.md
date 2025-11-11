@@ -1,37 +1,73 @@
-# Lab 00: Getting Started with AI SDK
+# Lab 00: Welcome to AI Labs!
 
-## Objective
+## Overview
 
-Learn the basics of interacting with AI models using the AI SDK.
+Welcome! This is your introduction to the AI Labs workshop system. Before diving into AI concepts, let's familiarize ourselves with how these labs work.
 
-## What You'll Learn
+## Lab Structure
 
-- Setting up environment variables
-- Making basic AI API calls
-- Handling responses
-- Error handling
+Each lab follows the same structure:
 
-## Prerequisites
+```
+lab-name/
+├── README.md        # Instructions and objectives (you're reading this!)
+├── exercise/        # Your starting point with TODOs
+│   └── main.ts
+└── solution/        # Reference solution (try not to peek!)
+    └── main.ts
+```
 
-- Node.js 24.11.0+ installed
-- API key configured in `.env` file
-- Dependencies installed (`pnpm install`)
+## How to Work Through Labs
 
-## Instructions
+### 1. Start the Interactive Runner
 
-1. Copy `.env.example` to `.env` and add your API key (automatically loaded)
-2. Run the interactive lab runner: `pnpm run dev`
-3. Select this exercise from the menu
-4. Read the instructions displayed before execution
-5. Complete the exercise in `exercise/main.ts`
-6. Use the action menu to reload, navigate, or check the solution
+```bash
+pnpm run dev
+```
 
-## Expected Output
+This launches an interactive menu where you can:
 
-Your code should successfully call the AI model and print a response.
+- 🔍 Search and filter exercises by typing
+- 📖 View README instructions before each lab
+- ✅ Run exercises with automatic `.env` loading
 
-## Tips
+### 2. Complete the Exercise
 
-- Start simple - get a basic response first
-- Add error handling once the basic flow works
-- Experiment with different prompts
+1. The README is displayed before the exercise runs
+2. Open `exercise/main.ts` in your editor
+3. Look for `TODO` comments - these are your tasks
+4. Complete each TODO to make the exercise work
+5. Save your changes
+
+### 3. Test Your Work
+
+After completing the TODOs, use the action menu:
+
+- **Run this exercise again** - Test your changes
+- **Select a different exercise** - Move to another lab
+- **Exit** - Quit when you're done
+
+### 4. Compare with Solution
+
+If you get stuck or want to see one approach, check `solution/main.ts`. But try to solve it yourself first!
+
+## Your First Task
+
+In this lab, you'll complete a simple welcome message. It's straightforward by design - the goal is to get comfortable with the workflow.
+
+**Steps:**
+
+1. Open `exercise/main.ts`
+2. Find the TODOs
+3. Replace the `???` placeholders with actual values
+4. Run the exercise and see your welcome message!
+
+## Tips for Future Labs
+
+- Read the entire README before starting
+- Complete TODOs in order
+- Run the exercise frequently to test your progress
+- Experiment! Change things and see what happens
+- The solution is just one approach - yours might differ
+
+Ready? Let's begin! Open `exercise/main.ts` and complete the TODOs.
