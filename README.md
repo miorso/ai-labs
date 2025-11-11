@@ -8,10 +8,10 @@ AI Labs is a series of practical workshops designed to explore and experiment wi
 
 ## Technologies
 
-- **TypeScript**: Type-safe development
-- **React**: Interactive user interfaces
-- **AI SDK**: AI application framework
-- **Gemini / Self-hosted models**: AI model providers
+- [TypeScript](https://www.typescriptlang.org/)
+- [React](https://react.dev/)
+- [AI SDK](https://sdk.vercel.ai/docs)
+- Gemini / Self-hosted models
 
 ## Format
 
@@ -19,9 +19,15 @@ Short, focused workshops that combine learning with practical coding exercises. 
 
 ## Prerequisites
 
-- **Node.js** 24.11.0 or higher ([Download](https://nodejs.org/))
+- **Node.js** 24.11.0 or higher
+  - Recommended: Use [nvm](https://github.com/nvm-sh/nvm) to manage Node.js versions (the correct version will be used automatically via `.nvmrc`)
+  - Or download directly from [nodejs.org](https://nodejs.org/)
 - **pnpm** 10.21.0 or higher ([Installation guide](https://pnpm.io/installation))
-- An API key from one of the supported AI providers (Gemini, OpenAI, or Anthropic)
+- An API key from one of the supported AI providers:
+  - [Google AI Studio](https://aistudio.google.com/) (Gemini)
+  - [Groq](https://console.groq.com/)
+  - [Ollama](https://ollama.com/) for self-hosted models
+  - Other providers: OpenAI, Anthropic
 
 ## Getting Started
 
@@ -38,7 +44,7 @@ cd ai-labs
 pnpm install
 ```
 
-If using nvm, the correct Node.js version will be automatically selected from `.nvmrc`.
+If using nvm, the correct Node.js version will be automatically selected from `.nvmrc` when you navigate to the project folder (you may need to run `nvm install` first if you don't have this version yet).
 
 ### 3. Configure Environment Variables
 
@@ -53,16 +59,6 @@ Edit `.env` and add your API key(s):
 ```
 GOOGLE_GENERATIVE_AI_API_KEY="your-api-key-here"
 ```
-
-### 4. Validate Your Setup
-
-Run the validation script to ensure everything is configured correctly:
-
-```bash
-pnpm run validate
-```
-
-This checks code formatting and TypeScript types.
 
 ## Repository Structure
 
@@ -102,26 +98,9 @@ pnpm run dev
 - 📖 README instructions displayed before each lab
 - ✅ Automatic .env file loading
 - 🔄 Action menu after completion:
-  - **Reload** - Run the same exercise again
-  - **Next** - Proceed to the next exercise
-  - **Previous** - Go back to the previous exercise
-  - **Choose** - Return to exercise selection
-  - **Quit** - Exit the program
-
-## Available Commands
-
-- `pnpm run dev` - Interactive menu to select and run any lab
-- `pnpm run format` - Format all files with Prettier
-- `pnpm run format:check` - Check if files are formatted
-- `pnpm run type-check` - Run TypeScript type checking
-- `pnpm run validate` - Run format check and type check
-
-## Goals
-
-- Make AI learning approachable and practical
-- Encourage hands-on exploration
-- Foster knowledge sharing among teammates
-- Experiment with real-world AI applications
+  - **Run this exercise again** - Re-run the current exercise
+  - **Select a different exercise** - Return to exercise selection
+  - **Exit** - Quit the program
 
 ## License
 
