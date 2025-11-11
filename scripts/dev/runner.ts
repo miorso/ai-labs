@@ -1,12 +1,22 @@
 import { existsSync } from 'fs';
 import chalk from 'chalk';
+import boxen from 'boxen';
 import { spawn } from 'child_process';
 
 export async function runLab(path: string): Promise<boolean> {
   return new Promise((resolve) => {
     if (!existsSync(path)) {
-      console.error(chalk.red('❌ Error: Selected file no longer exists'));
-      console.error(chalk.gray(`Path: ${path}`));
+      console.error(
+        boxen(
+          chalk.red('❌ Error: Selected file no longer exists\n\n') +
+            chalk.gray(`Path: ${path}`),
+          {
+            padding: 1,
+            borderColor: 'red',
+            borderStyle: 'round',
+          },
+        ),
+      );
       resolve(false);
       return;
     }
@@ -19,17 +29,33 @@ export async function runLab(path: string): Promise<boolean> {
     });
 
     nodeProcess.on('error', (error) => {
-      console.error(chalk.red('\n❌ Failed to start Node.js process'));
-      console.error(chalk.gray(`   ${error.message}`));
-      console.error(chalk.gray('\nMake sure Node.js 24.11.0+ is installed'));
+      console.error(
+        boxen(
+          chalk.red('❌ Failed to start Node.js process\n\n') +
+            chalk.gray(`${error.message}\n\n`) +
+            chalk.yellow('Make sure Node.js 24.11.0+ is installed'),
+          {
+            padding: 1,
+            borderColor: 'red',
+            borderStyle: 'round',
+          },
+        ),
+      );
       resolve(false);
     });
 
     nodeProcess.on('exit', (code) => {
       if (code !== 0) {
-        console.error(chalk.red(`\n❌ Process exited with code ${code}`));
         console.error(
-          chalk.gray('Check the error messages above for details\n'),
+          boxen(
+            chalk.red(`❌ Process exited with code ${code}\n\n`) +
+              chalk.gray('Check the error messages above for details'),
+            {
+              padding: 1,
+              borderColor: 'red',
+              borderStyle: 'round',
+            },
+          ),
         );
       } else console.log();
       resolve(code === 0);

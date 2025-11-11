@@ -1,5 +1,6 @@
 import { scanLabs } from './scanner.ts';
 import chalk from 'chalk';
+import boxen from 'boxen';
 import { showLabSelection } from './menu.ts';
 import { existsSync } from 'fs';
 import { displayReadme } from './readme.ts';
@@ -11,11 +12,19 @@ export async function main(): Promise<void> {
   const choices = scanLabs();
 
   if (choices.length === 0) {
-    console.log(chalk.yellow('📭 No labs found in the labs/ directory'));
-    console.log('');
-    console.log('To create a lab, add a folder like:');
-    console.log(chalk.gray('  labs/01-my-lab/exercise/main.ts'));
-    console.log(chalk.gray('  labs/01-my-lab/solution/main.ts'));
+    console.log(
+      boxen(
+        chalk.yellow('📭 No labs found in the labs/ directory\n\n') +
+          'To create a lab, add a folder like:\n' +
+          chalk.gray('  labs/01-my-lab/exercise/main.ts\n') +
+          chalk.gray('  labs/01-my-lab/solution/main.ts'),
+        {
+          padding: 1,
+          borderColor: 'yellow',
+          borderStyle: 'round',
+        },
+      ),
+    );
     process.exit(0);
   }
 
@@ -47,7 +56,13 @@ export async function main(): Promise<void> {
         showSelection = true;
         break;
       default:
-        console.log(chalk.yellow('\n👋 Goodbye!'));
+        console.log(
+          boxen(chalk.cyan('👋 Goodbye!\n\nHappy learning!'), {
+            padding: 1,
+            borderColor: 'cyan',
+            borderStyle: 'round',
+          }),
+        );
         process.exit(0);
     }
   }
@@ -55,12 +70,27 @@ export async function main(): Promise<void> {
 
 function validatePath(path: string): void {
   if (!path) {
-    console.error(chalk.red('❌ Invalid lab path'));
+    console.error(
+      boxen(chalk.red('❌ Invalid lab path'), {
+        padding: 1,
+        borderColor: 'red',
+        borderStyle: 'round',
+      }),
+    );
     process.exit(1);
   }
 
   if (!existsSync(path)) {
-    console.error(chalk.red('❌ Selected file does not exist:'), path);
+    console.error(
+      boxen(
+        chalk.red('❌ Selected file does not exist:\n\n') + chalk.gray(path),
+        {
+          padding: 1,
+          borderColor: 'red',
+          borderStyle: 'round',
+        },
+      ),
+    );
     process.exit(1);
   }
 }
