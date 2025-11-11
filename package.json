@@ -39,6 +39,14 @@
     ],
     "singleQuote": true
   },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^2.0.44",
+    "@ai-sdk/google": "^2.0.31",
+    "@ai-sdk/groq": "^2.0.29",
+    "@ai-sdk/openai": "^2.0.65",
+    "ai": "^5.0.92",
+    "ollama-ai-provider": "^1.2.0"
+  },
   "devDependencies": {
     "@commitlint/cli": "^20.1.0",
     "@commitlint/config-conventional": "^20.0.0",
