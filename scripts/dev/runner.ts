@@ -21,9 +21,16 @@ export async function runLab(path: string): Promise<boolean> {
       return;
     }
 
+    let stderrOutput = '';
     const nodeProcess = spawn('node', ['--experimental-strip-types', path], {
-      stdio: 'inherit',
+      stdio: ['inherit', 'inherit', 'pipe'],
       env: process.env,
+    });
+
+    nodeProcess.stderr?.on('data', (data) => {
+      const chunk = data.toString();
+      process.stderr.write(chunk);
+      stderrOutput += chunk;
     });
 
     nodeProcess.on('error', (error) => {
@@ -44,17 +51,41 @@ export async function runLab(path: string): Promise<boolean> {
 
     nodeProcess.on('exit', (code) => {
       if (code !== 0) {
-        console.error(
-          boxen(
-            chalk.red(`❌ Process exited with code ${code}\n\n`) +
-              chalk.gray('Check the error messages above for details'),
-            {
-              padding: 1,
-              borderColor: 'red',
-              borderStyle: 'round',
-            },
-          ),
-        );
+        const isTimeoutError =
+          stderrOutput.includes('Connect Timeout Error') ||
+          stderrOutput.includes('UND_ERR_CONNECT_TIMEOUT');
+
+        if (isTimeoutError) {
+          console.error(
+            boxen(
+              chalk.red(`❌ Connection timeout error\n\n`) +
+                chalk.yellow('Possible causes:\n') +
+                chalk.gray('  • VPN blocking API access\n') +
+                chalk.gray('  • Corporate firewall\n') +
+                chalk.gray('  • Network connectivity issues\n\n') +
+                chalk.cyan(
+                  'Try disconnecting from VPN or checking your network settings',
+                ),
+              {
+                padding: 1,
+                borderColor: 'red',
+                borderStyle: 'round',
+              },
+            ),
+          );
+        } else {
+          console.error(
+            boxen(
+              chalk.red(`❌ Process exited with code ${code}\n\n`) +
+                chalk.gray('Check the error messages above for details'),
+              {
+                padding: 1,
+                borderColor: 'red',
+                borderStyle: 'round',
+              },
+            ),
+          );
+        }
       } else console.log();
       resolve(code === 0);
     });
