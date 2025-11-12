@@ -11,7 +11,7 @@ const envPath = join(__dirname, '..', '..', '.env');
 
 export function loadEnvironment() {
   if (existsSync(envPath)) {
-    dotenv.config({ path: envPath });
+    dotenv.config({ path: envPath, quiet: true });
     console.log(chalk.green('✅ Loaded environment variables from .env\n'));
   } else {
     console.log(
