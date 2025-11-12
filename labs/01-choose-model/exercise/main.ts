@@ -1,17 +1,9 @@
-async function main() {
-  // TODO: Replace the ??? with the actual initiative name
-  const labName = '???';
+// TODO: Import your AI SDK Provider. Recommended: "Google"
 
-  // TODO: Replace the ??? with your name (or "Developer" if you prefer)
-  const yourName = '???';
+// TODO: Instantiate the model. Recommended: "gemini-2.0-flash-lite"
+const model = TODO;
 
-  console.log(`Welcome to ${labName}!`);
-  console.log(
-    `Hello, ${yourName}! You've successfully completed your first lab.`,
-  );
-  console.log(
-    '\nNow you know how the lab system works. Ready for the real AI challenges?',
-  );
-}
+// TODO: Ask the model to "Say hello!"
+const { text } = TODO;
 
-main().catch(console.error);
+console.log(text);

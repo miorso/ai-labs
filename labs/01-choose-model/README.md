@@ -1,73 +1,101 @@
-# Lab 00: Welcome to AI Labs!
+# Lab 01: Choose Your Model
 
 ## Overview
 
-Welcome! This is your introduction to the AI Labs workshop system. Before diving into AI concepts, let's familiarize ourselves with how these labs work.
+In this lab, you'll learn how to select and use AI models with the Vercel AI SDK. You'll see how easy it is to switch between different providers (Google, Groq, Ollama) while keeping your code nearly identical.
 
-## Lab Structure
+## Learning Objectives
 
-Each lab follows the same structure:
+- Import and configure an AI provider - [Providers Documentation](https://sdk.vercel.ai/providers/ai-sdk-providers)
+- Instantiate a language model
+- Make your first API call with `generateText()` - [generateText Documentation](https://sdk.vercel.ai/docs/reference/ai-sdk-core/generate-text)
+- Understand provider interchangeability
 
-```
-lab-name/
-├── README.md        # Instructions and objectives (you're reading this!)
-├── exercise/        # Your starting point with TODOs
-│   └── main.ts
-└── solution/        # Reference solution (try not to peek!)
-    └── main.ts
-```
+## Prerequisites
 
-## How to Work Through Labs
-
-### 1. Start the Interactive Runner
+Make sure you have at least one API key configured in your `.env` file:
 
 ```bash
-pnpm run dev
+# Choose one or more:
+GOOGLE_GENERATIVE_AI_API_KEY=your_key_here
+GROQ_API_KEY=your_key_here
+
+# Or run Ollama locally (no API key needed):
+# ollama pull llama3.2
 ```
 
-This launches an interactive menu where you can:
+## Your Task
 
-- 🔍 Search and filter exercises by typing
-- 📖 View README instructions before each lab
-- ✅ Run exercises with automatic `.env` loading
+Complete the TODOs in `exercise/main.ts` to:
 
-### 2. Complete the Exercise
+1. Import an AI SDK provider (e.g., `@ai-sdk/google`)
+2. Import the `generateText` function from the `ai` package
+3. Instantiate a model (e.g., `google('gemini-2.0-flash-lite')`)
+4. Call `generateText()` with your model and a simple prompt
+5. Log the response
 
-1. The README is displayed before the exercise runs
-2. Open `exercise/main.ts` in your editor
-3. Look for `TODO` comments - these are your tasks
-4. Complete each TODO to make the exercise work
-5. Save your changes
+## Recommended Models
 
-### 3. Test Your Work
+**Google (Requires API key)** - [Documentation](https://sdk.vercel.ai/providers/ai-sdk-providers/google-generative-ai)
 
-After completing the TODOs, use the action menu:
+```typescript
+import { google } from '@ai-sdk/google';
+const model = google('gemini-2.0-flash-lite');
+```
 
-- **Run this exercise again** - Test your changes
-- **Select a different exercise** - Move to another lab
-- **Exit** - Quit when you're done
+**Groq (Requires API key)** - [Documentation](https://sdk.vercel.ai/providers/ai-sdk-providers/groq)
 
-### 4. Compare with Solution
+```typescript
+import { groq } from '@ai-sdk/groq';
+const model = groq('llama-3.3-70b-versatile');
+```
 
-If you get stuck or want to see one approach, check `solution/main.ts`. But try to solve it yourself first!
+**Ollama (Local, no API key)** - [Documentation](https://sdk.vercel.ai/providers/community-providers/ollama)
 
-## Your First Task
+```typescript
+import { ollama } from 'ollama-ai-provider-v2';
+const model = ollama('llama3.2');
+```
 
-In this lab, you'll complete a simple welcome message. It's straightforward by design - the goal is to get comfortable with the workflow.
+## Expected Output
 
-**Steps:**
+When you run the exercise successfully, you should see a friendly greeting from your chosen AI model:
 
-1. Open `exercise/main.ts`
-2. Find the TODOs
-3. Replace the `???` placeholders with actual values
-4. Run the exercise and see your welcome message!
+```
+Hello! How can I assist you today?
+```
 
-## Tips for Future Labs
+## Key Concepts
 
-- Read the entire README before starting
-- Complete TODOs in order
-- Run the exercise frequently to test your progress
-- Experiment! Change things and see what happens
-- The solution is just one approach - yours might differ
+### Provider Interchangeability
 
-Ready? Let's begin! Open `exercise/main.ts` and complete the TODOs.
+The AI SDK abstracts away provider differences. Notice how you can swap providers by changing just two lines:
+
+```typescript
+// From Google:
+import { google } from '@ai-sdk/google';
+const model = google('gemini-2.0-flash-lite');
+
+// To Groq:
+import { groq } from '@ai-sdk/groq';
+const model = groq('llama-3.3-70b-versatile');
+```
+
+The rest of your code stays the same!
+
+## Troubleshooting
+
+**Connection timeout errors?**
+
+- If you see timeout errors, try disconnecting from VPN
+- Corporate firewalls may block certain API endpoints
+
+**API key errors?**
+
+- Verify your `.env` file has the correct key for your chosen provider
+- Make sure the key name matches (e.g., `GOOGLE_GENERATIVE_AI_API_KEY` for Google)
+
+**Ollama connection refused?**
+
+- Make sure Ollama is running: `ollama serve`
+- Pull the model first: `ollama pull llama3.2`

@@ -1,14 +1,10 @@
-async function main() {
-  const labName = 'AI Labs';
-  const yourName = 'Developer';
+import { generateText } from 'ai';
+import { google } from '@ai-sdk/google';
+// import { ollama } from 'ollama-ai-provider-v2';
 
-  console.log(`Welcome to ${labName}!`);
-  console.log(
-    `Hello, ${yourName}! You've successfully completed your first lab.`,
-  );
-  console.log(
-    '\nNow you know how the lab system works. Ready for the real AI challenges?',
-  );
-}
+const model = google('gemini-2.0-flash-lite');
+// const model = ollama('llama3.2');
 
-main().catch(console.error);
+const { text } = await generateText({ model, prompt: 'Say hello!' });
+
+console.log(text);
