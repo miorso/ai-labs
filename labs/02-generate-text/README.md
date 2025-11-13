@@ -2,7 +2,7 @@
 
 ## Overview
 
-In this lab, you'll explore the `generateText()` function in more depth by crafting meaningful prompts and seeing how AI models respond to different types of questions. This builds on Lab 01 by focusing on prompt engineering and understanding model outputs.
+In this lab, you'll learn how to use the `generateText()` function to generate AI responses. You'll craft meaningful prompts and see how AI models respond to different types of questions. This builds on Lab 01 where you learned about model configuration.
 
 ## Learning Objectives
 
@@ -93,3 +93,20 @@ After completing the exercise, experiment with:
 2. **Different lengths** - Ask for 1 sentence, then 5 sentences
 3. **Different styles** - Ask for formal vs. casual explanations
 4. **Different audiences** - "Explain to a 10-year-old" vs. "Explain to an expert"
+
+## Troubleshooting
+
+**Connection timeout errors?**
+
+- If you see timeout errors, try disconnecting from VPN
+- Corporate firewalls may block certain API endpoints
+
+**API key errors?**
+
+- Verify your `.env` file has the correct key for your chosen provider
+- Make sure the key name matches (e.g., `GOOGLE_GENERATIVE_AI_API_KEY` for Google)
+
+**Ollama connection refused?**
+
+- Make sure Ollama is running: `ollama serve`
+- Pull the model first: `ollama pull llama3.2`
