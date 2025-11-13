@@ -1,5 +1,5 @@
 import { google } from '@ai-sdk/google';
-import { generateText } from 'ai';
+import { generateText, type ModelMessage } from 'ai';
 
 const model = google('gemini-2.0-flash-lite');
 
