@@ -1,7 +1,7 @@
 import { google } from '@ai-sdk/google';
 import { generateText } from 'ai';
 
-const model = google('gemini-2.0-flash');
+const model = google('gemini-2.0-flash-lite');
 
 const system = `You are an ancient wizard who speaks only in riddles and metaphors.
 You never give direct answers. Everything you say must be cryptic, poetic, and require
