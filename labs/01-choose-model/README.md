@@ -55,6 +55,22 @@ This shows you what a model object actually contains - it's just a configuration
 
 ## Key Concepts
 
+### How the AI SDK Works
+
+The AI SDK provides a unified interface for working with different AI providers. Here's how it's structured:
+
+![AI SDK Architecture](ai-sdk-architecture.png)
+
+The AI SDK uses a **Language Model Specification** that standardizes how you interact with different providers. Each provider (Google, OpenAI, Anthropic, etc.) implements this specification, which means you can switch between them with minimal code changes.
+
 ### Provider Interchangeability
 
 The AI SDK abstracts away provider differences. Notice how you can swap providers by changing just two lines while the rest of your code stays the same!
+
+### Why Use the AI SDK?
+
+Compared to other frameworks, the AI SDK offers a focused, TypeScript-first approach:
+
+![AI SDK Comparison](ai-sdk-comparison.png)
+
+The AI SDK strikes a balance between simplicity and functionality - it's not as complex as LangGraph, nor as opinionated as batteries-included frameworks like Mastra.
