@@ -10,7 +10,7 @@ const schema = z.object({
   genre: z.string(),
   yearPublished: z.number(),
   summary: z.string(),
-  keyThemes: z.string().array(),
+  keyThemes: z.array(z.string()),
   targetAudience: z.string(),
 });
 
