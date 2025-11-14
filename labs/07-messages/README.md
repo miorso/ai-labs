@@ -27,7 +27,7 @@ Complete the TODOs in `exercise/main.ts` to:
 
 You should see a conversation where the AI's final response references earlier context:
 
-```
+```text
 💬 Multi-Turn Conversation with Messages
 
 User: What is recursion in programming?

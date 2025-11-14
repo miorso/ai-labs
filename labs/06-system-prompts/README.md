@@ -24,7 +24,7 @@ Complete the TODOs in `exercise/main.ts` to:
 
 You should see the wizard respond in riddles and metaphors, maintaining character even when asked to speak plainly:
 
-```
+```text
 🧙‍♂️ The Riddle-Speaking Wizard
 
 You: What is 2 + 2?

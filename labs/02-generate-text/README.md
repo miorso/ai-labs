@@ -32,7 +32,7 @@ Try asking the model to explain:
 
 You should see a thoughtful, well-structured explanation from your model:
 
-```
+```text
 Recursion is like standing between two mirrors - you see your reflection
 repeated endlessly, with each reflection showing the previous one. In
 programming, a recursive function calls itself to solve smaller versions

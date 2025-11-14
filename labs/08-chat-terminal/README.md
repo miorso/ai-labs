@@ -31,7 +31,7 @@ Note: The `getUserInput()` helper function is already provided for you - it hand
 
 You should see an interactive chatbot that remembers the entire conversation:
 
-```
+```text
 🤖 Terminal Chatbot
 Type "exit" to quit
 
