@@ -8,7 +8,7 @@ async function getUserInput(): Promise<string> {
     name: 'message',
     message: 'You:',
   });
-  return input.message.trim();
+  return input.message?.trim() || '';
 }
 
 const model = google('gemini-2.0-flash-lite');
