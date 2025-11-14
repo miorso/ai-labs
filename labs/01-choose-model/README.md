@@ -40,18 +40,21 @@ Complete the TODOs in `exercise/main.ts` to:
 
 ## Expected Output
 
-When you run the exercise successfully, you should see the model configuration object:
+When you run the exercise successfully, you should see the model object:
 
 ```
-{
-  specificationVersion: 'v1',
-  provider: 'google.generative-ai',
+GoogleGenerativeAILanguageModel {
+  specificationVersion: 'v2',
   modelId: 'gemini-2.0-flash-lite',
+  config: {
+    provider: 'google.generative-ai',
+    ...
+  },
   ...
 }
 ```
 
-This shows you what a model object actually contains - it's just a configuration that tells the AI SDK which provider and model to use!
+This shows you what a model object actually contains - it's a class instance that encapsulates the configuration needed to communicate with the AI provider!
 
 ## Key Concepts
 
