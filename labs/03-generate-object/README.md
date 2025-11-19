@@ -25,21 +25,21 @@ Complete the TODOs in `exercise/main.ts` to:
 
 You should see a properly structured JavaScript object:
 
-```
+```json
 {
-  title: 'The Pragmatic Programmer',
-  author: 'Andrew Hunt and David Thomas',
-  genre: 'Technology',
-  yearPublished: 1999,
-  summary: 'A comprehensive guide to software craftsmanship that covers topics from code organization to career development, offering practical advice and timeless principles for becoming a better programmer.',
-  keyThemes: [
-    'Software craftsmanship',
-    'Code maintainability',
-    'Professional development',
-    'Best practices',
-    'Continuous learning'
+  "title": "The Pragmatic Programmer",
+  "author": "Andrew Hunt and David Thomas",
+  "genre": "Technology",
+  "yearPublished": 1999,
+  "summary": "A comprehensive guide to software craftsmanship that covers topics from code organization to career development, offering practical advice and timeless principles for becoming a better programmer.",
+  "keyThemes": [
+    "Software craftsmanship",
+    "Code maintainability",
+    "Professional development",
+    "Best practices",
+    "Continuous learning"
   ],
-  targetAudience: 'Software developers at all levels who want to improve their craft and build better software'
+  "targetAudience": "Software developers at all levels who want to improve their craft and build better software"
 }
 ```
 

@@ -25,7 +25,7 @@ Complete the TODOs in `exercise/main.ts` to:
 
 You should see text appear progressively in your terminal, word by word or phrase by phrase, just like watching ChatGPT respond:
 
-```
+```text
 Once upon a time, in a world where artificial intelligence had evolved...
 ```
 
