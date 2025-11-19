@@ -94,6 +94,19 @@ The AI SDK uses this schema to:
 2. Validate the model's response matches your schema
 3. Provide TypeScript types automatically
 
+### How Schemas Work with AI Models
+
+When you pass a Zod schema to `generateObject()`, here's what happens behind the scenes:
+
+1. **Schema → Instructions**: The AI SDK converts your Zod schema into a description that tells the model: "Return JSON with these exact fields and types"
+2. **Sent with your prompt**: This schema description is sent to the model alongside your prompt, instructing it on the structure to follow
+3. **Model generates JSON**: The model generates a JSON response matching the structure you defined
+4. **Validation**: The SDK validates the response against your schema to ensure it matches
+
+This means the model "knows" what structure to return because your schema is literally sent as part of the request, converted into instructions the model can understand.
+
+**Example:** When you define `z.object({ name: z.string(), age: z.number() })`, the SDK tells the model: "Generate a JSON object with a 'name' field (string) and 'age' field (number)."
+
 ### The generateObject Response
 
 ```typescript
