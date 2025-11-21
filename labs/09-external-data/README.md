@@ -82,12 +82,6 @@ The `readFile()` function:
 - Returns a Promise that resolves to the file contents as a string
 - Works great with top-level `await` in TypeScript
 
-### Incorporating Data into Messages
-
-Once you have external data, you can include it in messages to give the AI access to that information. Think about how to structure your messages to provide both behavioral instructions and data access.
-
-The AI will be able to reference any information you include in the message history when generating responses.
-
 ### Domain-Specific AI Experts
 
 By combining:
