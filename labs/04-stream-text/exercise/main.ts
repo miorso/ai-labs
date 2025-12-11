@@ -1,7 +1,7 @@
 import { google } from '@ai-sdk/google';
 // TODO: Import streamText from 'ai'
 
-const model = google('gemini-2.0-flash-lite');
+const model = google('gemini-2.5-flash-lite');
 
 // TODO: Create a prompt that generates enough text to see streaming in action
 // Example: "Tell a short story about an AI that became a real human in 2-3 paragraphs"

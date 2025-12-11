@@ -2,7 +2,7 @@ import { google } from '@ai-sdk/google';
 // TODO: Import streamObject from 'ai'
 // TODO: Import z from 'zod'
 
-const model = google('gemini-2.0-flash-lite');
+const model = google('gemini-2.5-flash-lite');
 
 // TODO: Create a Zod schema for a D&D campaign with the following structure:
 // - campaign: object with:

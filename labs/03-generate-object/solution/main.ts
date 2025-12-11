@@ -2,7 +2,7 @@ import { google } from '@ai-sdk/google';
 import { generateObject } from 'ai';
 import { z } from 'zod';
 
-const model = google('gemini-2.0-flash-lite');
+const model = google('gemini-2.5-flash-lite');
 
 const schema = z.object({
   title: z.string(),

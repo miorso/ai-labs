@@ -1,7 +1,7 @@
 import { google } from '@ai-sdk/google';
 import { generateText, type ModelMessage } from 'ai';
 
-const model = google('gemini-2.0-flash-lite');
+const model = google('gemini-2.5-flash-lite');
 
 console.log('💬 Multi-Turn Conversation with Messages\n');
 

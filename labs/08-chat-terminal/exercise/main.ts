@@ -11,7 +11,7 @@ async function getUserInput(): Promise<string> {
   return input.message?.trim() || '';
 }
 
-const model = google('gemini-2.0-flash-lite');
+const model = google('gemini-2.5-flash-lite');
 
 console.log('🤖 Terminal Chatbot');
 console.log('Type "exit" to quit\n');

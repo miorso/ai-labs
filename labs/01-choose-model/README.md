@@ -29,7 +29,7 @@ GROQ_API_KEY=your_key_here
 Complete the TODOs in `exercise/main.ts` to:
 
 1. Import an AI SDK provider (e.g., `@ai-sdk/google`)
-2. Instantiate a model (e.g., `google('gemini-2.0-flash-lite')`)
+2. Instantiate a model (e.g., `google('gemini-2.5-flash-lite')`)
 3. Log the model to see what it contains
 
 ## Recommended Models
@@ -45,7 +45,7 @@ When you run the exercise successfully, you should see the model object:
 ```
 GoogleGenerativeAILanguageModel {
   specificationVersion: 'v2',
-  modelId: 'gemini-2.0-flash-lite',
+  modelId: 'gemini-2.5-flash-lite',
   config: {
     provider: 'google.generative-ai',
     ...

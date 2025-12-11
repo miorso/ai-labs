@@ -1,7 +1,7 @@
 import { google } from '@ai-sdk/google';
 import { generateText } from 'ai';
 
-const model = google('gemini-2.0-flash-lite');
+const model = google('gemini-2.5-flash-lite');
 
 // TODO: Create a system prompt that defines an ancient wizard character who speaks
 // in riddles and never breaks character, even when asked to speak plainly
