@@ -1,6 +1,7 @@
 import { Hono } from 'hono';
 import { serve } from '@hono/node-server';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { once } from 'node:events';
 import type { Closeable, ServerOptions } from '#server/types.ts';
 
@@ -12,8 +13,9 @@ export async function runBackendServer(ops: ServerOptions): Promise<Closeable> {
 
     try {
       const modulePath = path.join(ops.root, url.pathname.slice(1) + '.ts');
+      const moduleUrl = pathToFileURL(modulePath).href;
 
-      const mod = await import(modulePath);
+      const mod = await import(moduleUrl);
       const handler = mod[c.req.method.toUpperCase()];
 
       if (!handler) {
