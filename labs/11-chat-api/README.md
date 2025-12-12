@@ -139,7 +139,7 @@ curl -X POST http://localhost:3000/api/chat -H "Content-Type: application/json" 
 **Windows (PowerShell):**
 
 ```powershell
-curl -X POST http://localhost:3000/api/chat -H "Content-Type: application/json" -d '{\"messages\":[{\"id\":\"1\",\"role\":\"user\",\"parts\":[{\"type\":\"text\",\"text\":\"Say hello in 3 words\"}]}]}'
+Invoke-RestMethod -Method POST -Uri http://localhost:3000/api/chat -ContentType "application/json" -Body '{"messages":[{"id":"1","role":"user","parts":[{"type":"text","text":"Say hello in 3 words"}]}]}'
 ```
 
 ## Expected Output
