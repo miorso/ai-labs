@@ -1,6 +1,6 @@
 import { google } from '@ai-sdk/google';
 // import { groq } from '@ai-sdk/groq';
-// import { ollama } from 'ollama-ai-provider-v2';
+// import { ollama } from 'ai-sdk-ollama';
 
 const model = google('gemini-2.5-flash-lite');
 // const model = groq('llama-3.3-70b-versatile');
