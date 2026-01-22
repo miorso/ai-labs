@@ -177,7 +177,7 @@ Enhance the chat with loading indicators:
    ```typescript
    const { messages, sendMessage, status } = useChat();
    ```
-2. Create loading state: `const isLoading = status === 'streaming';`
+2. Create loading state: `const isLoading = status === 'streaming' || status === 'submitted';`
 3. Prevent submit while loading:
    ```typescript
    if (isLoading || !input.trim()) return;
